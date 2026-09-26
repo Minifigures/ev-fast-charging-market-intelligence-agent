@@ -89,7 +89,8 @@ screenshots/
   12a–12e Reliability Evaluation (agent)
   13a–13d Leadership Brief v1 (agent)
   14a–14c Leadership Brief v2 after fact-check (agent)
-  15*     Space contents
+  15a     Space contents (11 items: dataset, research, analysis, reliability, briefs)
+  16      agent scope test (refuses IRR, stock picks, post-2030 forecasts)
   visuals/ charts from the Quick Research reports, used as Visual Evidence
 tools/
   build_brief.py                                    builds the .docx/.html from the Markdown brief

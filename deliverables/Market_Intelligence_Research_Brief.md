@@ -63,10 +63,11 @@
 - **Quick Research:** three reports, using preferred and avoided websites, Quick assets, plan revision, and export to the Space and PDF.
 - **Custom chat agent:** "Market Intelligence Agent – EV Fast Charging". It has a purpose statement, scope, source-labelling rules, a rule to show both figures when sources conflict, response formats and scope limits (no investment advice, no NPV or IRR). Its knowledge source is the Space.
 - **Agent features:** code execution for dataset arithmetic, table views, and document artifacts added to the Space as Word files.
+- **Scope test:** a request for IRR/payback, a stock pick and a 2035 EV-fleet forecast. The agent refused all three and cited its scope limits (screenshot 16).
 
 Outside Quick, a standard-library Python script re-derived every dataset metric, and 10 cited figures were checked against their primary sources.
 
-Evidence of AI-assisted work is in `screenshots/`: Space set-up (01), research set-up and plan (02–03), agent configuration and first test (04–07), research reports (08–10), Market Analysis (11a–11e), Reliability Evaluation (12a–12e), Brief v1 (13a–13d), Brief v2 (14a–14c), and the charts from the research reports (`visuals/`).
+Evidence of AI-assisted work is in `screenshots/`: Space set-up (01), research set-up and plan (02–03), agent configuration and first test (04–07), research reports (08–10), Market Analysis (11a–11e), Reliability Evaluation (12a–12e), Brief v1 (13a–13d), Brief v2 (14a–14c), the Space contents (15a), a scope test (16), and the charts from the research reports (`visuals/`).
 
 ## 4. Key Market Insights
 
@@ -278,9 +279,10 @@ Paraphrased; the full requests are visible in the agent screenshots.
 | Focus-market filter (695 rows) | `data/iea_ev_cars_and_charging_focus_markets_2018_2030.csv` |
 | DATASET_REFERENCE.md | `data/DATASET_REFERENCE.md` |
 | Quick Research: UK, US, Germany/France reports | `deliverables/quick_research_reports/*.pdf` |
-| Market Analysis and Reliability Evaluation (agent document) | `screenshots/11*`, `screenshots/12*` |
-| Market Intelligence Brief v1 and v2 (agent documents) | `screenshots/13*`, `screenshots/14*` |
-| This Research Brief | `deliverables/Market_Intelligence_Research_Brief.*` |
+| Market Analysis - EV Fast Charging 2026-2028.docx (agent document) | `screenshots/11*` |
+| Reliability Evaluation - EV Fast Charging 2026-2028.docx (agent document) | `screenshots/12*` |
+| Market Intelligence Brief (v1) and Market Intelligence Brief v2 (.docx, agent documents) | `screenshots/13*`, `screenshots/14*` |
+| Market_Intelligence_Research_Brief.pdf (this brief) | `deliverables/Market_Intelligence_Research_Brief.*` |
 
 ## Appendix C. Key primary sources
 
