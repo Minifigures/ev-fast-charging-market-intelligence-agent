@@ -2,9 +2,9 @@
 
 A no-code market intelligence workflow built in **Amazon Quick Suite**. It answers one question for a mid-size public DC fast-charging operator: **which market should it prioritise for its 2026–2028 expansion — the United Kingdom, the United States, or the EU core (Germany and France)?**
 
-The workflow combines an internal dataset (IEA Global EV Data 2024, from Kaggle) with three Quick Research reports. A custom chat agent turns them into a Market Analysis, a Reliability Evaluation and a leadership brief. Every headline figure was then checked against its primary source before the final brief was written.
+The workflow combines an internal dataset (IEA Global EV Data 2024, from Kaggle) with three Quick Research reports. A custom chat agent turns them into a Market Analysis, a Reliability Evaluation and a leadership brief. Ten headline figures were spot-checked against their primary sources, and the final brief was reviewed line by line against the reports and the dataset.
 
-**Recommendation:** prioritise the **UK** with a site-led entry. Motorway service areas open to competition from November 2026, and several regions remain underserved. Scope **France** as phase two, and **defer the US** until demand recovers. **Overall confidence: Medium.**
+**Recommendation:** prioritise the **UK** with a site-led entry. About two-thirds of motorway service areas open to competition from November 2026, when Gridserve's exclusive rights lapse, and several regions remain underserved. Scope **France** as phase two, and **defer the US** until demand recovers. **Overall confidence: Medium.**
 
 ➡️ **Read the brief:** [`deliverables/Market_Intelligence_Research_Brief.pdf`](deliverables/Market_Intelligence_Research_Brief.pdf) (also as [`.docx`](deliverables/Market_Intelligence_Research_Brief.docx) and [`.md`](deliverables/Market_Intelligence_Research_Brief.md))
 
@@ -14,11 +14,11 @@ The workflow combines an internal dataset (IEA Global EV Data 2024, from Kaggle)
 
 | # | Insight | Confidence |
 |---|---|---|
-| 1 | **The 2023 "charging gap" has largely closed.** In the dataset, the UK had 158 EVs per public fast charger in 2023. By July 2026 UK 50 kW+ chargers had nearly tripled (10,118 → 28,887). The build-out now outruns the fleet in all four markets. | Medium |
-| 2 | **Demand follows policy.** The UK ZEV mandate sets a legal floor (52% of new-car sales by 2028), and France is up +62.9% (H1 2026). US BEV share fell below 6% after the federal credit expired in September 2025. | High (direction) |
-| 3 | **Utilisation and grid cost are the binding constraints.** UK public chargers average about 8% utilisation (all speeds), against a US DC figure of about 16% and a roughly 15% breakeven. UK grid standing charges rose from £99 to £8,600 a year, and grid-connection queues average 5.5 years. | Medium-Low |
-| 4 | **Competition is concentrated in the US and Germany, fragmented in the UK and France.** Tesla holds 49.8% of US DC ports; EnBW leads Germany. The UK has 100–150 operators consolidating toward 5–6. | Medium |
-| 5 | **The entry windows are time-bound.** The UK motorway opening starts November 2026 (CMA). France's ADVENIR subsidy programme runs to 2030. $503.8 M of US federal NEVI charging funds was repurposed in March 2026. | Medium |
+| 1 | **The 2023 "charging gap" has largely closed.** In the dataset, the UK had 158 EVs per public fast charger in 2023. By July 2026 UK 50 kW+ chargers had nearly tripled (10,118 → 28,887), though part of the jump comes from DfT switching from counting devices to counting connectors in January 2026. The build-out now outruns the fleet in the UK, Germany and France. In the US the ratio is back to about its 2023 level. | Medium |
+| 2 | **Demand follows policy.** The UK ZEV mandate sets a statutory target (52% of new-car sales by 2028) that manufacturers currently meet through compliance flexibilities while sales run below it. France is up 62.9% (H1 2026). US BEV share fell below 6% after the federal credit expired in September 2025. | Medium |
+| 3 | **Utilisation and grid cost are the binding constraints.** UK public chargers average about 8% utilisation (all speeds). The US DC figure is about 16%, against a roughly 15% breakeven. Grid standing charges for one operator's typical UK ultra-rapid hub rose from £99 to £8,600 a year between 2022 and 2024 (Osprey). Ofgem's pre-reform data (June 2024) showed a 5.5-year average connection gap. | Low |
+| 4 | **Competition is concentrated in the US and moderately concentrated in Germany; it is fragmented in the UK and France.** Tesla holds 49.8% of US DC ports. In Germany, EnBW holds about 16% of fast points and the top 5 about 40%, with the subsidised Deutschlandnetz rollout as the bigger barrier. The UK has 100–150 operators consolidating toward 5–6. | Medium |
+| 5 | **The entry windows are time-bound.** The UK motorway opening, covering about two-thirds of service areas, starts November 2026 (CMA). France's ADVENIR subsidy programme runs to 2030. $503.8 M of US federal NEVI charging funds was repurposed in March 2026. | Medium |
 
 ## What was built in Quick Suite
 
@@ -27,8 +27,8 @@ Kaggle dataset ──► Space "EV Fast-Charging Market Intelligence 2026-2028"
                      │   IEA Global EV Data 2024 + focus-market filter + DATASET_REFERENCE.md
                      │
 Quick Research ──────┤   UK (Deep) · US (Fast) · Germany/France (Fast)
- (Space attached     │   preferred sites: gov.uk/DfT, SMMT, Ofgem, AFDC, FHWA, EIA, ACEA,
-  as a Quick asset)  │   Bundesnetzagentur, Avere-France · avoided: reddit, quora, medium, social
+ (Space attached     │   preferred sites: gov.uk, Zapmap, SMMT, Ofgem, AFDC, FHWA, IEA, ACEA,
+  as a Quick asset)  │   Bundesnetzagentur, KBA, Avere-France · avoided: reddit, quora, medium, social
                      │   → exported to the Space and to PDF
                      ▼
 Chat agent "Market Intelligence Agent – EV Fast Charging" (knowledge = the Space)
@@ -43,7 +43,7 @@ Research Brief (this repo)   9-section course template + decision dashboard, fre
 
 ### Agent configuration
 
-The agent's instructions, summarised; the full text is visible in screenshots 04–05:
+The agent's instructions, summarised. The full text is visible in screenshots 04–05, and the details panel with its knowledge source (the Space) is in 06:
 
 - **Purpose:** analyse the dataset and external market signals to produce a market analysis and a brief leadership can act on.
 - **Scope:** a mid-size DC fast-charging operator; the UK, US and EU core; 2026–2028; public DC fast charging for passenger cars.
@@ -58,20 +58,16 @@ The agent's instructions, summarised; the full text is visible in screenshots 04
 
 ## Validation: how the numbers were checked
 
-- **Dataset recomputed independently.** `analysis/ev_charging_gap.py` (Python standard library only) re-derives every dataset metric the agent used: EV car stock, public fast chargers, EVs per fast charger and STEPS projections. The agent's comparison table matches it to rounding; the agent shows the US 9.5% share as 10%.
+- **Dataset recomputed independently.** `analysis/ev_charging_gap.py` (Python standard library only) re-derives the 2023 dataset metrics (EV car stock, public fast chargers, EVs per fast charger, sales share) and the 2030 STEPS/APS car stock. The agent's first dataset test (screenshots 07a–07b) and its comparison table match it to rounding; the agent shows the US 9.5% share as 10%.
 - **Arithmetic checks inside Quick.** The agent tested three claims from the research reports and found two problems:
   - The UK report's claim that the BEV fleet "doubled" is actually +58%.
-  - The US report cites "30–35% a year" growth in DC ports, but its own figures imply about 16.5% annualised in 2026.
+  - The US report cites "30–35% a year" growth in DC ports, but its own figures imply about 18–19% annualised from end-2025 to September 2026.
 - **Primary-source spot-check of 10 headline figures.** Six were verified as written and two were verified with a corrected citation. One end date was out of date: ADVENIR runs to 2030, not end-2027. One had the wrong scope: the ~8% UK utilisation figure covers all chargers, not rapid chargers only.
-- **Six AI errors caught.** Four were corrected before Brief v2:
-  - The UK research report's "doubled" claim.
-  - The US report's inconsistent growth rate.
-  - The agent citing a UK 2023 share of 22.3% (the dataset says 24%).
-  - The agent listing Scotland, the best-served UK region, as underserved.
-
-  Two were in charts the agent generated, so they are flagged and not used:
-  - A pie chart showing Tesla at 54.2% of US DC ports; the correct share is 49.8%.
-  - A BEV-share bar chart that compares a single month's figure with full-year and year-to-date figures.
+- **Line-by-line review of the brief** against the reports, the dataset and the agent's documents. It found 23 errors in AI-generated material: 12 in the Quick Research reports and 11 in the agent's outputs. They are listed in the brief's Appendix E, and none is carried into the brief. Examples:
+  - The UK report says the BEV fleet "doubled"; it grew 58%.
+  - The US report gives "96–106 EVs per port", which cannot be reproduced; recomputed, the US ratio is back to about its 2023 level.
+  - The EU report lists Ionity as Germany's 5th-largest fast-charging network; it is 8th.
+  - An agent chart shows Tesla at 54.2% of US DC ports; the correct share is 49.8%. That chart and one other flawed chart are kept out of the Visual Evidence.
 
 ## Repository layout
 
@@ -90,15 +86,19 @@ deliverables/
                                                     01 Market Analysis · 02 Reliability Evaluation ·
                                                     03 Brief v1 · 04 Brief v2 · 05 combined doc with 4 agent charts
 screenshots/
-  01–07   Space, Quick Research set-up, agent configuration, first agent test
-  08–10   Quick Research reports (UK, US, EU core)
+  01      Space with the dataset uploaded
+  02–03   UK Quick Research set-up (preferred sites) and revised plan
+  04–06   agent configuration (instructions, scope limits) and knowledge source (the Space)
+  07a–07b first agent test: 2023 dataset table matching the recomputation
+  08      UK research report · 09a–09b US report and its materials · 10a–10b EU core report and its materials
   11a–11e Market Analysis (agent)
   12a–12e Reliability Evaluation (agent)
   13a–13d Leadership Brief v1 (agent)
   14a–14c Leadership Brief v2 after fact-check (agent)
-  15a     Space contents (11 items: dataset, research, analysis, reliability, briefs)
+  15a–15b Space contents (dataset, research reports, analysis, reliability, both agent briefs, this brief)
   16      agent scope test (refuses IRR, stock picks, post-2030 forecasts)
-  visuals/ v1–v7 charts from the Quick Research reports; v9–v12 charts generated by the agent
+  visuals/ v1–v7 charts from the Quick Research reports; v9–v10 charts generated by the agent;
+           excluded_flawed_agent_charts/ two agent charts with errors, kept as a record
 tools/
   build_brief.py                                    builds the .docx/.html from the Markdown brief
 ```
@@ -111,7 +111,7 @@ python3 analysis/ev_charging_gap.py
 
 That regenerates `analysis/ev_charging_gap.{md,json}` from the CSV using only the standard library.
 
-To rebuild the brief, install `python-docx` and `markdown` in a virtual environment, then run:
+To rebuild the brief, install `python-docx` and `markdown` in a virtual environment, then run the command below. It needs the course's Research Brief template (.docx), which is not redistributed here.
 
 ```bash
 python tools/build_brief.py path/to/research-brief-template.docx
@@ -122,7 +122,7 @@ That writes the `.docx` and an `.html`. The PDF is printed from the HTML.
 ## Data and sources
 
 - **Internal dataset:** IEA *Global EV Outlook 2024* data via Kaggle [`patricklford/global-ev-sales-2010-2024`](https://www.kaggle.com/datasets/patricklford/global-ev-sales-2010-2024), licensed CC BY 4.0. Historical data ends in 2023; values for 2025 onward are IEA scenario projections.
-- **External research:** generated with Amazon Quick Research on 26 September 2026. Every claim in the reports links to its source, and the reference lists are in the PDFs. The primary sources behind the brief are listed in its Appendix C.
+- **External research:** generated with Amazon Quick Research on 26 September 2026. Most claims in the reports are linked to a numbered reference; a few references have no URL or point to the private lab Space. The reference lists are in the PDFs. The primary sources behind the brief are listed in its Appendix C.
 
 ## Context
 

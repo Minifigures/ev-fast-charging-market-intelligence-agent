@@ -8,3 +8,6 @@ __pycache__/
 *.zip
 # build intermediate for the PDF brief
 deliverables/*.html
+
+# never commit environment files
+.env*
