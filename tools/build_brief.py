@@ -40,6 +40,8 @@ VISUALS = [
     ("V6", "screenshots/visuals/v6_de_fr_evs_per_fast_charger_bar.png", "EVs per fast charger, Germany and France (Quick Research, EU report)"),
     ("V7", "screenshots/visuals/v7_de_fr_top_hpc_operators_bar.png", "Top HPC operators, Germany and France (Quick Research, EU report)"),
     ("V8", "screenshots/11b_market_analysis_comparison_table.png", "Market comparison table (Market Intelligence Agent)"),
+    ("V9", "screenshots/visuals/v9_agent_evs_per_fast_charger_2023_vs_latest.png", "EVs per fast charger, 2023 vs latest (Market Intelligence Agent chart)"),
+    ("V10", "screenshots/visuals/v12_agent_us_dc_port_growth_2023_2026.png", "US DC fast port growth 2023 to Sep 2026 (Market Intelligence Agent chart)"),
 ]
 
 INLINE = re.compile(r"(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)")

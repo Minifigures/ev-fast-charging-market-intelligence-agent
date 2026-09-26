@@ -62,7 +62,7 @@
 - **Spaces:** the "EV Fast-Charging Market Intelligence 2026-2028" Space holds the dataset, a dataset reference note, the three research reports, the Market Analysis, the Reliability Evaluation and both versions of the brief.
 - **Quick Research:** three reports, using preferred and avoided websites, Quick assets, plan revision, and export to the Space and PDF.
 - **Custom chat agent:** "Market Intelligence Agent – EV Fast Charging". It has a purpose statement, scope, source-labelling rules, a rule to show both figures when sources conflict, response formats and scope limits (no investment advice, no NPV or IRR). Its knowledge source is the Space.
-- **Agent features:** code execution for dataset arithmetic, table views, and document artifacts added to the Space as Word files.
+- **Agent features:** code execution for dataset arithmetic and charts, table views, and document artifacts added to the Space as Word files (downloaded to `deliverables/agent_outputs/`).
 - **Scope test:** a request for IRR/payback, a stock pick and a 2035 EV-fleet forecast. The agent refused all three and cited its scope limits (screenshot 16).
 
 Outside Quick, a standard-library Python script re-derived every dataset metric, and 10 cited figures were checked against their primary sources.
@@ -161,7 +161,7 @@ Evidence of AI-assisted work is in `screenshots/`: Space set-up (01), research s
 
 ## 5. Visual Evidence
 
-All charts below were produced by Amazon Quick Research inside the three reports (exported PDFs in `deliverables/quick_research_reports/`). The last item is a table view from the agent's Market Analysis. Image files: `screenshots/visuals/v1_…` to `v7_…` and `screenshots/11b_market_analysis_comparison_table.png`; all eight are reproduced at the end of this brief.
+V1–V7 were produced by Amazon Quick Research inside the three reports (exported PDFs in `deliverables/quick_research_reports/`). V8 is a table view from the agent's Market Analysis. V9 and V10 are charts the agent generated with code execution for its combined analysis document (`deliverables/agent_outputs/05_…docx`). Image files: `screenshots/visuals/` and `screenshots/11b_market_analysis_comparison_table.png`. All ten are reproduced at the end of this brief.
 
 | # | Chart type | What the visualisation shows | How it supports an insight |
 |---|---|---|---|
@@ -173,6 +173,8 @@ All charts below were produced by Amazon Quick Research inside the three reports
 | V6 | Grouped bar chart | EVs per fast charger, IEA 2023 vs latest: Germany 119 → 71, France 79 → 46 | **Insight 1.** Supply outpaced the fleet in the EU core. Definitions differ, so the chart shows direction, not exact size. |
 | V7 | Paired horizontal bar charts | Top-5 high-power operators: Germany (EnBW 6,005) and France (Tesla 3,019) | **Insight 4.** Germany is more concentrated than France. |
 | V8 | Table view (agent output) | The 2023 dataset baseline next to the latest research for all four markets, with charger definitions labelled | **Insights 1–3.** The side-by-side comparison, with definition caveats, that the ranking rests on. |
+| V9 | Grouped bar chart (agent, from dataset + research) | EVs per fast charger, 2023 dataset baseline vs latest research: UK 158 → 66, US 112 → 101, Germany 119 → 70, France 79 → 46 | **Insight 1.** All four markets on one chart. The chart itself notes that definitions differ, so it shows direction only. |
+| V10 | Line chart (agent) | US DC fast ports: about 43,000 (2023), 50,428 (2024), about 68,000 (2025), 76,236 (Sep 2026), with the report's "30–35% a year" claim marked as true for 2024→2025 only | **Insights 1 and 4.** US build-out is slowing in 2026. The last point is September 2026, not year-end, although the chart title says "End-of-Year". |
 
 ## 6. Confidence Assessment
 
@@ -188,13 +190,15 @@ All charts below were produced by Amazon Quick Research inside the three reports
 
 1. **Charger definitions** differ across sources.
 2. **Utilisation data** is thin, with none at all for Germany or France.
-3. **Four errors were caught** in AI-generated material during review:
+3. **Six errors were caught** in AI-generated material during review:
     - The UK research report's "doubled" claim.
     - The US report's growth-rate inconsistency.
     - The agent's 22.3% UK dataset figure.
     - The agent's list of underserved regions, which included Scotland.
+    - An agent-generated pie chart showing Tesla at 54.2% of US DC ports. It divides by the listed networks only (70,095 ports) instead of the 76,236 total it prints, so the correct share is 49.8%.
+    - An agent-generated bar chart of BEV share. It compares France's single-month August 2026 record (38.8%) with full-year and year-to-date shares for the other markets.
 
-All four were corrected before Brief v2.
+The first four were corrected before Brief v2. The two charts are excluded from this brief's Visual Evidence and are kept in `deliverables/agent_outputs/05_…docx` only as a record.
 
 ## 7. Limitations and Risks
 
@@ -256,7 +260,7 @@ All four were corrected before Brief v2.
 2. As a result, returns now depend on winning well-connected sites and on utilisation, not on a national charger shortage.
 3. Demand is set by policy: the UK ZEV mandate gives a statutory floor rising to 52% of new-car sales by 2028, and France is accelerating (+62.9% BEV registrations in H1 2026), while US BEV share fell below 6% after the federal credit ended.
 4. The UK is the recommended first market because motorway service areas open to competition from November 2026 and underserved regions such as Northern Ireland (19.3 rapid chargers per 100,000 people vs a 41.7 UK average) remain, with France as phase two and the US deferred.
-5. Overall confidence is Medium: directions are backed by official statistics, but charger definitions differ across sources, utilisation data is thin, and four errors in AI-generated material were caught and corrected during review.
+5. Overall confidence is Medium: directions are backed by official statistics, but charger definitions differ across sources, utilisation data is thin, and six errors in AI-generated material (four in the text, two in agent charts) were caught during review.
 6. The immediate next steps are grid-capacity checks on a UK site shortlist, buying utilisation data by charger speed, and tracking the UK ZEV mandate consultation before any capital commitment.
 
 ---
@@ -279,9 +283,10 @@ Paraphrased; the full requests are visible in the agent screenshots.
 | Focus-market filter (695 rows) | `data/iea_ev_cars_and_charging_focus_markets_2018_2030.csv` |
 | DATASET_REFERENCE.md | `data/DATASET_REFERENCE.md` |
 | Quick Research: UK, US, Germany/France reports | `deliverables/quick_research_reports/*.pdf` |
-| Market Analysis - EV Fast Charging 2026-2028.docx (agent document) | `screenshots/11*` |
-| Reliability Evaluation - EV Fast Charging 2026-2028.docx (agent document) | `screenshots/12*` |
-| Market Intelligence Brief (v1) and Market Intelligence Brief v2 (.docx, agent documents) | `screenshots/13*`, `screenshots/14*` |
+| Market Analysis - EV Fast Charging 2026-2028.docx (agent document) | `deliverables/agent_outputs/01_…docx`, `screenshots/11*` |
+| Reliability Evaluation - EV Fast Charging 2026-2028.docx (agent document) | `deliverables/agent_outputs/02_…docx`, `screenshots/12*` |
+| Market Intelligence Brief (v1) and Market Intelligence Brief v2 (.docx, agent documents) | `deliverables/agent_outputs/03_…docx`, `04_…docx`, `screenshots/13*`, `screenshots/14*` |
+| Combined Market Analysis + Reliability document with four agent charts (chat file, not in the Space) | `deliverables/agent_outputs/05_…docx` |
 | Market_Intelligence_Research_Brief.pdf (this brief) | `deliverables/Market_Intelligence_Research_Brief.*` |
 
 ## Appendix C. Key primary sources
