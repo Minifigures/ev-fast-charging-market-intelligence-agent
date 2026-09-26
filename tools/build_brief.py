@@ -45,10 +45,12 @@ VISUALS = [
 ]
 
 INLINE = re.compile(r"(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)")
+LINK = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 
 
 def add_runs(par, text):
-    """Add text to a paragraph, honouring **bold**, *italic* and `code`."""
+    """Add text to a paragraph, honouring **bold**, *italic*, `code` and [links](...) (text only)."""
+    text = LINK.sub(r"\1", text)
     for part in INLINE.split(text):
         if not part:
             continue
@@ -83,6 +85,15 @@ def add_table(doc, rows):
     ncol = max(len(r) for r in cells)
     t = doc.add_table(rows=len(cells), cols=ncol)
     set_borders(t)
+    # size columns by content: short ID columns stay narrow, long text columns get the room
+    lengths = [max(min(len(r[j]) if j < len(r) else 0, 400) for r in cells) for j in range(ncol)]
+    weights = [max(l, 12) for l in lengths]
+    total_w = 6.5
+    widths = [total_w * w / sum(weights) for w in weights]
+    t.autofit = False
+    for row in t.rows:
+        for j, cell in enumerate(row.cells):
+            cell.width = Inches(widths[j])
     for i, r in enumerate(cells):
         for j in range(ncol):
             txt = r[j] if j < len(r) else ""
@@ -163,9 +174,12 @@ def build_docx(template):
 CSS = """
 body { font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 10.5pt; line-height: 1.45; color: #1a1a1a; max-width: 7.2in; margin: 0 auto; }
 h1 { font-size: 20pt; margin-bottom: 4pt; color: #232f3e; }
+h2, h3 { page-break-after: avoid; }
 h2 { font-size: 14pt; border-bottom: 1.5px solid #ff9900; padding-bottom: 2pt; margin-top: 18pt; color: #232f3e; page-break-after: avoid; }
 h3 { font-size: 11.5pt; margin-top: 12pt; color: #232f3e; page-break-after: avoid; }
-table { border-collapse: collapse; width: 100%; margin: 6pt 0 10pt; font-size: 8.8pt; page-break-inside: avoid; }
+table { border-collapse: collapse; width: 100%; margin: 6pt 0 10pt; font-size: 8.8pt; }
+tr, th, td { page-break-inside: avoid; }
+thead { display: table-header-group; }
 th, td { border: 1px solid #c8ccd0; padding: 4pt 5pt; vertical-align: top; text-align: left; }
 th { background: #f2f4f6; }
 code { font-family: Menlo, monospace; font-size: 8.5pt; background: #f4f4f4; padding: 0 2pt; }
