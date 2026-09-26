@@ -87,10 +87,15 @@ def add_table(doc, rows):
     set_borders(t)
     # size columns by content: short ID columns stay narrow, long text columns get the room
     lengths = [max(min(len(r[j]) if j < len(r) else 0, 400) for r in cells) for j in range(ncol)]
-    weights = [max(l, 12) for l in lengths]
+    # never narrower than the column's longest word plus cell margins (capped), so labels and IDs don't break mid-word
+    words = [max((len(w) for r in cells if j < len(r) for w in re.sub(r"[*`]", "", r[j]).split()), default=1) for j in range(ncol)]
+    mins = [min(1.2, 0.2 + 0.07 * n) for n in words]
     total_w = 6.5
-    widths = [total_w * w / sum(weights) for w in weights]
+    spare = total_w - sum(mins)
+    widths = [m + spare * l / sum(lengths) for m, l in zip(mins, lengths)]
     t.autofit = False
+    for g, w in zip(t._tbl.tblGrid.findall(qn("w:gridCol")), widths):
+        g.set(qn("w:w"), str(int(w * 1440)))
     for row in t.rows:
         for j, cell in enumerate(row.cells):
             cell.width = Inches(widths[j])
@@ -188,12 +193,14 @@ li { margin: 2pt 0; }
 figure { margin: 10pt 0 14pt; text-align: center; page-break-inside: avoid; }
 figure img { max-width: 100%; border: 1px solid #ddd; }
 figcaption { font-size: 8.5pt; font-style: italic; color: #555; }
+p:has(+ table) { break-after: avoid; }
 hr { border: 0; border-top: 1px solid #ddd; }
 """
 
 
 def build_html():
-    md = open(SRC, encoding="utf-8").read()
+    # print link labels only: Chrome would turn relative links into file:// paths in the PDF
+    md = LINK.sub(r"\1", open(SRC, encoding="utf-8").read())
     html = markdown.markdown(md, extensions=["tables", "sane_lists"])
     figs = ['<h2 style="page-break-before: always">Visual Evidence: images</h2>']
     for tag, rel, caption in VISUALS:
