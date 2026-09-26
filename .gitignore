@@ -1,0 +1,10 @@
+# course material and working notes stay local
+_course_notes/
+# local environments and OS files
+.venv/
+__pycache__/
+.DS_Store
+# submission archives are built from the repo
+*.zip
+# build intermediate for the PDF brief
+deliverables/*.html

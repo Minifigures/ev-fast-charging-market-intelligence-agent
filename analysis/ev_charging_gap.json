@@ -1,0 +1,280 @@
+{
+  "markets": {
+    "USA": {
+      "car_ev_stock_2023": 4818000.0,
+      "car_ev_stock_growth_2022_23_pct": 59.3,
+      "car_ev_sales_2023": 1393000.0,
+      "car_ev_sales_growth_2022_23_pct": 40.3,
+      "bev_share_of_car_ev_sales_2023_pct": 79.0,
+      "car_ev_sales_share_2023_pct": 9.5,
+      "car_ev_sales_share_2022_pct": 7.40000009536743,
+      "public_fast_chargers_2023": 43000.0,
+      "public_fast_chargers_growth_2022_23_pct": 53.6,
+      "public_slow_chargers_2023": 140000.0,
+      "car_evs_per_fast_charger_2023": 112.0,
+      "car_evs_per_public_charger_2023": 26.3,
+      "steps_car_ev_stock_2030": 42354000.0,
+      "aps_car_ev_stock_2030": 42256000.0,
+      "steps_stock_multiple_2023_to_2030": 8.79
+    },
+    "Canada": {
+      "car_ev_stock_2023": 550320.0,
+      "car_ev_stock_growth_2022_23_pct": 34.1,
+      "car_ev_sales_2023": 171013.0,
+      "car_ev_sales_growth_2022_23_pct": 48.7,
+      "bev_share_of_car_ev_sales_2023_pct": 76.0,
+      "car_ev_sales_share_2023_pct": 13.0,
+      "car_ev_sales_share_2022_pct": 9.5,
+      "public_fast_chargers_2023": 4800.0,
+      "public_fast_chargers_growth_2022_23_pct": 23.1,
+      "public_slow_chargers_2023": 22000.0,
+      "car_evs_per_fast_charger_2023": 114.7,
+      "car_evs_per_public_charger_2023": 20.5,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "United Kingdom": {
+      "car_ev_stock_2023": 1580260.0,
+      "car_ev_stock_growth_2022_23_pct": 66.3,
+      "car_ev_sales_2023": 450025.0,
+      "car_ev_sales_growth_2022_23_pct": 21.6,
+      "bev_share_of_car_ev_sales_2023_pct": 68.9,
+      "car_ev_sales_share_2023_pct": 24.0,
+      "car_ev_sales_share_2022_pct": 23.0,
+      "public_fast_chargers_2023": 10000.0,
+      "public_fast_chargers_growth_2022_23_pct": 44.9,
+      "public_slow_chargers_2023": 43000.0,
+      "car_evs_per_fast_charger_2023": 158.0,
+      "car_evs_per_public_charger_2023": 29.8,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "EU27": {
+      "car_ev_stock_2023": 8104700.0,
+      "car_ev_stock_growth_2022_23_pct": 44.6,
+      "car_ev_sales_2023": 2450770.0,
+      "car_ev_sales_growth_2022_23_pct": 16.6,
+      "bev_share_of_car_ev_sales_2023_pct": 65.3,
+      "car_ev_sales_share_2023_pct": 22.0,
+      "car_ev_sales_share_2022_pct": 21.0,
+      "public_fast_chargers_2023": 82000.0,
+      "public_fast_chargers_growth_2022_23_pct": 67.3,
+      "public_slow_chargers_2023": 510000.0,
+      "car_evs_per_fast_charger_2023": 98.8,
+      "car_evs_per_public_charger_2023": 13.7,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "Germany": {
+      "car_ev_stock_2023": 2502400.0,
+      "car_ev_stock_growth_2022_23_pct": 34.4,
+      "car_ev_sales_2023": 700260.0,
+      "car_ev_sales_growth_2022_23_pct": -15.7,
+      "bev_share_of_car_ev_sales_2023_pct": 74.3,
+      "car_ev_sales_share_2023_pct": 24.0,
+      "car_ev_sales_share_2022_pct": 31.0,
+      "public_fast_chargers_2023": 21000.0,
+      "public_fast_chargers_growth_2022_23_pct": 40.0,
+      "public_slow_chargers_2023": 87000.0,
+      "car_evs_per_fast_charger_2023": 119.2,
+      "car_evs_per_public_charger_2023": 23.2,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "France": {
+      "car_ev_stock_2023": 1570890.0,
+      "car_ev_stock_growth_2022_23_pct": 49.5,
+      "car_ev_sales_2023": 470310.0,
+      "car_ev_sales_growth_2022_23_pct": 38.2,
+      "bev_share_of_car_ev_sales_2023_pct": 65.9,
+      "car_ev_sales_share_2023_pct": 25.0,
+      "car_ev_sales_share_2022_pct": 20.0,
+      "public_fast_chargers_2023": 20000.0,
+      "public_fast_chargers_growth_2022_23_pct": 106.2,
+      "public_slow_chargers_2023": 98000.0,
+      "car_evs_per_fast_charger_2023": 78.5,
+      "car_evs_per_public_charger_2023": 13.3,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "Netherlands": {
+      "car_ev_stock_2023": 700620.0,
+      "car_ev_stock_growth_2022_23_pct": 34.6,
+      "car_ev_sales_2023": 210065.0,
+      "car_ev_sales_growth_2022_23_pct": 53.2,
+      "bev_share_of_car_ev_sales_2023_pct": 61.9,
+      "car_ev_sales_share_2023_pct": 35.0,
+      "car_ev_sales_share_2022_pct": 26.0,
+      "public_fast_chargers_2023": 5800.0,
+      "public_fast_chargers_growth_2022_23_pct": 34.9,
+      "public_slow_chargers_2023": 140000.0,
+      "car_evs_per_fast_charger_2023": 120.8,
+      "car_evs_per_public_charger_2023": 4.8,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "Norway": {
+      "car_ev_stock_2023": 900290.0,
+      "car_ev_stock_growth_2022_23_pct": 13.9,
+      "car_ev_sales_2023": 110006.0,
+      "car_ev_sales_growth_2022_23_pct": -29.5,
+      "bev_share_of_car_ev_sales_2023_pct": 90.9,
+      "car_ev_sales_share_2023_pct": 93.0,
+      "car_ev_sales_share_2022_pct": 89.0,
+      "public_fast_chargers_2023": 11000.0,
+      "public_fast_chargers_growth_2022_23_pct": 20.9,
+      "public_slow_chargers_2023": 16000.0,
+      "car_evs_per_fast_charger_2023": 81.8,
+      "car_evs_per_public_charger_2023": 33.3,
+      "steps_car_ev_stock_2030": null,
+      "aps_car_ev_stock_2030": null,
+      "steps_stock_multiple_2023_to_2030": null
+    },
+    "China": {
+      "car_ev_stock_2023": 21800760.0,
+      "car_ev_stock_growth_2022_23_pct": 54.6,
+      "car_ev_sales_2023": 8100520.0,
+      "car_ev_sales_growth_2022_23_pct": 37.3,
+      "bev_share_of_car_ev_sales_2023_pct": 66.7,
+      "car_ev_sales_share_2023_pct": 38.0,
+      "car_ev_sales_share_2022_pct": 29.0,
+      "public_fast_chargers_2023": 1200000.0,
+      "public_fast_chargers_growth_2022_23_pct": 57.9,
+      "public_slow_chargers_2023": 1500000.0,
+      "car_evs_per_fast_charger_2023": 18.2,
+      "car_evs_per_public_charger_2023": 8.1,
+      "steps_car_ev_stock_2030": 115110000.0,
+      "aps_car_ev_stock_2030": 113370000.0,
+      "steps_stock_multiple_2023_to_2030": 5.28
+    },
+    "World": {
+      "car_ev_stock_2023": 40066000.0,
+      "car_ev_stock_growth_2022_23_pct": 53.8,
+      "car_ev_sales_2023": 13808900.0,
+      "car_ev_sales_growth_2022_23_pct": 35.2,
+      "bev_share_of_car_ev_sales_2023_pct": 68.8,
+      "car_ev_sales_share_2023_pct": 18.0,
+      "car_ev_sales_share_2022_pct": 14.0,
+      "public_fast_chargers_2023": 1400000.0,
+      "public_fast_chargers_growth_2022_23_pct": 55.6,
+      "public_slow_chargers_2023": 2500000.0,
+      "car_evs_per_fast_charger_2023": 28.6,
+      "car_evs_per_public_charger_2023": 10.3,
+      "steps_car_ev_stock_2030": 236450000.0,
+      "aps_car_ev_stock_2030": 242200000.0,
+      "steps_stock_multiple_2023_to_2030": 5.9
+    }
+  },
+  "trajectory": {
+    "USA": {
+      "2018": {
+        "fast": 4200.0,
+        "car_ev_stock": 1126200.0
+      },
+      "2019": {
+        "fast": 13000.0,
+        "car_ev_stock": 1458200.0
+      },
+      "2020": {
+        "fast": 17000.0,
+        "car_ev_stock": 1749200.0
+      },
+      "2021": {
+        "fast": 22000.0,
+        "car_ev_stock": 2232000.0
+      },
+      "2022": {
+        "fast": 28000.0,
+        "car_ev_stock": 3025000.0
+      },
+      "2023": {
+        "fast": 43000.0,
+        "car_ev_stock": 4818000.0
+      }
+    },
+    "EU27": {
+      "2018": {
+        "fast": 8600.0,
+        "car_ev_stock": 760750.0
+      },
+      "2019": {
+        "fast": 12000.0,
+        "car_ev_stock": 1111200.0
+      },
+      "2020": {
+        "fast": 19000.0,
+        "car_ev_stock": 2091900.0
+      },
+      "2021": {
+        "fast": 29000.0,
+        "car_ev_stock": 3902700.0
+      },
+      "2022": {
+        "fast": 49000.0,
+        "car_ev_stock": 5604000.0
+      },
+      "2023": {
+        "fast": 82000.0,
+        "car_ev_stock": 8104700.0
+      }
+    },
+    "United Kingdom": {
+      "2018": {
+        "fast": 2700.0,
+        "car_ev_stock": 186070.0
+      },
+      "2019": {
+        "fast": 2800.0,
+        "car_ev_stock": 251170.0
+      },
+      "2020": {
+        "fast": 3900.0,
+        "car_ev_stock": 410230.0
+      },
+      "2021": {
+        "fast": 5200.0,
+        "car_ev_stock": 710240.0
+      },
+      "2022": {
+        "fast": 6900.0,
+        "car_ev_stock": 950190.0
+      },
+      "2023": {
+        "fast": 10000.0,
+        "car_ev_stock": 1580260.0
+      }
+    },
+    "Canada": {
+      "2018": {
+        "fast": 840.0,
+        "car_ev_stock": 87005.0
+      },
+      "2019": {
+        "fast": 980.0,
+        "car_ev_stock": 136096.0
+      },
+      "2020": {
+        "fast": 2300.0,
+        "car_ev_stock": 212130.0
+      },
+      "2021": {
+        "fast": 3100.0,
+        "car_ev_stock": 300250.0
+      },
+      "2022": {
+        "fast": 3900.0,
+        "car_ev_stock": 410300.0
+      },
+      "2023": {
+        "fast": 4800.0,
+        "car_ev_stock": 550320.0
+      }
+    }
+  }
+}
